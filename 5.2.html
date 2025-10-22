@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Tilted Background Effect</title>
+    <style>
+        /* Base styles */
+        body {
+            /* make page scrollable to test fixed behaviour */
+            min-height: 300vh;
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            background-color: #f4f4f4; /* Light gray background for contrast */
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Fixed, tilted element (the "background" card) */
+        .tilted-bg {
+            position: fixed;
+            /* Center horizontally and vertically in the viewport */
+            left: 50%;
+            top: 50vh;
+            
+            /* Translate to center, then rotate; translateZ(0) triggers GPU acceleration */
+            transform: translate(-50%, -50%) rotateZ(-12deg) translateZ(0); 
+            
+            /* Responsive size for the card */
+            width: 85vw;
+            max-width: 600px;
+            height: auto;
+            min-height: 200px; /* Ensure it has some height */
+            
+            background-color: white; /* White background to match the image */
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            
+            /* Modern, soft shadow */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            pointer-events: none; /* So it won't block clicks to elements below it */
+            z-index: 1000; /* Fixed card's z-index */
+            opacity: 0.95;
+            will-change: transform;
+            
+            /* Ensure text inside is centered and styled correctly */
+            text-align: center;
+        }
+
+        /* Sample page content container */
+        main {
+            /* Reduced top padding since H1 is now outside */
+            padding: 1rem 1rem 4rem 1rem; 
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative; /* Ensure content stacks correctly */
+            z-index: 1;
+        }
+
+        /* Styling for the content inside the tilted card */
+        .tilted-bg p {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            margin: 1rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem; 
+            font-weight: 800;
+            /* Increased top padding and margin-bottom for maximum visual separation */
+            padding-top: 8rem; 
+            margin-bottom: 4rem; 
+            color: #1a1a1a;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+            
+            /* Crucial for ensuring the H1 renders above the fixed card */
+            position: relative; 
+            z-index: 1001; 
+        }
+
+        /* Content to ensure scrolling */
+        .scroll-block {
+            margin-top: 150vh;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADING: Now positioned relative with higher z-index for clarity -->
+    <h1>Scroll to see the fixed tilted background</h1>
+
+    <!-- The fixed, tilted container (acting as the background element) -->
+    <div class="tilted-bg" aria-hidden="true">
+        <p>This is a demonstration of a fixed background image with a tilt effect.</p>
+        <p>You can replace the background image URL in the CSS to see different effects.</p>
+        <p>Feel free to experiment with the tilt angle and other CSS properties!</p>
+        <p>This is a demonstration of a fixed background image with a tilt effect.</p>
+    </div>
+
+    <!-- Scrollable Page Content -->
+    <main>
+        <p>This main content scrolls normally over the fixed, white, tilted card.</p>
+        <p>The card remains stationary, centered in the viewport.</p>
+        
+        <div class="scroll-block">
+            <p>This content is placed far down the page to force vertical scrolling and demonstrate the fixed position of the tilted element.</p>
+        </div>
+        
+    </main>
+
+</body>
+</html>

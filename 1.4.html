@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>thumbnail image gallery</title> 
+<style> 
+body { 
+font-family: arial, dans-serif; 
+text-align: center; 
+} 
+.gallery{ 
+display: flex; 
+flex-wrap: wrap; 
+justify-content: center; 
+gap: 15px; 
+margin-top: 20px; 
+} 
+.gallery a img{ 
+width: 100px; 
+height:100px; 
+object-fit: cover; 
+border: 2px soild #ccc; 
+border-radius: 8px; 
+transition: transform 0.3s; 
+} 
+.gallery a img:hover{ 
+transform:scale(1.1); 
+border-color: #666: 
+} 
+</style> 
+</head> 
+<body> 
+<h1> my image gallery</h1> 
+<p>click on a thumbnail to view the full-sized image</p> 
+<div class="gallery"> 
+<a href="C:\Users\user\Downloads\HackerRank_Icon-1000px.png" target="_blank"> 
+<img src="C:\Users\user\Downloads\HackerRank_Icon-1000px.png" alt="image1"> 
+</a> 
+<a href="C:\Users\user\Downloads\leetcode.png" target="_blank"> 
+<img src="C:\Users\user\Downloads\leetcode.png" alt="image2"> 
+</a> 
+<a href="C:\Users\user\Downloads\codeforce.jpg" target="_blank"> 
+<img src="C:\Users\user\Downloads\codeforce.jpg" alt="image3"> 
+</a> 
+<a href="C:\Users\user\Downloads\codechef.jpg" target="_blank"> 
+<img src="C:\Users\user\Downloads\codechef.jpg" alt="image4"> 
+</a> 
+</div> 
+</body> 
+</html>

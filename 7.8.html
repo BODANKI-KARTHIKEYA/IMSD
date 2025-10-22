@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us Page</title>
+<style>
+    /* Basic styling for better readability (optional but recommended) */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+        width: 400px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+        padding: 10px;
+    }
+    input[type="submit"], input[type="reset"] {
+        padding: 8px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+<script>
+    /**
+     * Validates the form fields before submission.
+     * @returns {boolean} True if validation passes, false otherwise.
+     */
+    function validation() {
+        // Get and trim the value from each input field
+        var nm = document.getElementById("name_id").value.trim();
+        var em = document.getElementById("email_id").value.trim();
+        var pw = document.getElementById("password_id").value.trim();
+        var ph = document.getElementById("phone").value.trim();
+        var ad = document.getElementById("address").value.trim();
+
+        // 1. Check if all fields are empty
+        if (nm === "" || em === "" || pw === "" || ph === "" || ad === "") {
+            alert("Please fill in all fields.");
+            return false;
+        }
+        
+        // 2. Name length validation
+        else if (nm.length < 4) {
+            alert("Name should be at least 4 characters long.");
+            return false;
+        }
+        
+        // 3. Email format validation (Standard regex check)
+        else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(em)) {
+            alert("Enter a valid Email ID (e.g., user@domain.com).");
+            return false;
+        }
+        
+        // 4. Password length validation
+        else if (pw.length < 6) {
+            alert("Password should be at least 6 characters long.");
+            return false;
+        }
+        
+        // 5. Phone number validation (Exactly 10 digits)
+        else if (!/^\d{10}$/.test(ph)) {
+            alert("Enter a valid 10-digit phone number.");
+            return false;
+        }
+        
+        // 6. Address length validation
+        else if (ad.length < 20) {
+            alert("Address should be at least 20 characters long.");
+            return false;
+        }
+        
+        // 7. Success
+        else {
+            alert("Form submitted successfully!");
+            // return true allows the form to submit to 'registration_app.php'
+            return true;
+        }
+    }
+</script>
+</head>
+<body>
+
+<form onsubmit="return validation()" action="registration_app.php" method="POST">
+    <table align="center" border="1" cellpadding="6">
+        <tr>
+            <td colspan="2" align="center"><h2>Contact Us (24B1CS002)</h2></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" id="name_id" /></td>
+        </tr>
+        <tr>
+            <td>Email ID</td>
+            <td><input type="text" name="email" id="email_id" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" id="password_id" /></td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td><input type="text" name="phone" id="phone" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea name="address" id="address"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="SUBMIT" />
+                <input type="reset" value="CLEAR" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

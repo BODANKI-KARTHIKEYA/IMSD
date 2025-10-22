@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array object properties</title>
+</head>
+<body>
+<h2>Array object example</h2>
+<p id="output"></p>
+<script>
+// creating an array
+let fruits = ["Apple", "Banana", "Mango"];
+
+// array property: length
+let originalLength = fruits.length; // Renamed for clarity
+
+// array methods
+
+fruits.push("Orange");       // adds element at end
+fruits.unshift("Grapes");    // adds element at beginning
+
+let removedLast = fruits.pop(); // removes last element
+let removedFirst = fruits.shift(); // removes first element
+
+// Note: sort() modifies the array IN PLACE and returns a reference to it.
+let sortedFruits = fruits.sort();
+
+// Note: join() converts the array (now sorted) to a string.
+// We use the 'fruits' array (which is already sorted) to generate the joined string.
+let joinedString = fruits.join(" | "); // Changed delimiter for better visual separation
+
+// display results
+document.getElementById("output").innerHTML =
+    "<b>Original length:</b> " + originalLength + "<br>" +
+    "<b>After push & unshift:</b> " + fruits.join(", ") + " (before pop/shift/sort)" + "<br>" +
+    "<b>Removed last:</b> " + removedLast + "<br>" +
+    "<b>Removed first:</b> " + removedFirst + "<br>" +
+    "<b>Current Array (Sorted):</b> " + sortedFruits.join(", ") + "<br>" +
+    "<b>Joined as string:</b> " + joinedString;
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User-defined object example</title>
+</head>
+<body>
+<h2>User-Defined object in JavaScript</h2>
+<p id="output"></p>
+<script>
+// Constructor function to define a user-defined object (Student blueprint)
+function Student(name, age, marks) {
+    // Properties
+    this.name = name;
+    this.age = age;
+    this.marks = marks;
+
+    // Method
+    this.displayDetails = function() {
+        return "Name: " + this.name + ", Age: " + this.age + ", Marks: " + this.marks;
+    };
+
+    // Accessor (Getter)
+    this.getGrade = function() {
+        if (this.marks >= 90) {
+            return "A";
+        } else if (this.marks >= 75) {
+            return "B";
+        } else if (this.marks >= 50) {
+            return "C";
+        } else {
+            return "Fail";
+        }
+    };
+
+    // Accessor (Setter)
+    this.setMarks = function(newMarks) {
+        this.marks = newMarks;
+    };
+}
+
+// create object using constructor
+let student1 = new Student("karthik", 19, 86);
+
+// Original details and grade (before update)
+let originalDetails = student1.displayDetails();
+let originalGrade = student1.getGrade();
+
+// use setter to update marks (85 -> 92)
+student1.setMarks(91);
+
+// Display results (showing the updated details and grade)
+document.getElementById("output").innerHTML = 
+    "<b>--- Before Marks Update ---</b><br>" +
+    originalDetails + "<br>" +
+    "Grade: " + originalGrade + "<br><br>" +
+    
+    "<b>--- After Marks Update (Marks set to 92) ---</b><br>" +
+    student1.displayDetails() + "<br>" +
+    "Grade: " + student1.getGrade();
+</script>
+</body>
+</html>

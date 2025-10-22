@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Pseudo-Class Selectors Example</title>
+<style>
+/* :hover - when mouse is over the element */ a:hover {
+color: violet;
+text-decoration: underline;
+}
+/* :first-child - targets the first child element */ ul li:first-child {
+font-weight: bold; color: red;
+}
+/* :last-child - targets the last child element */
+ 
+ul li:last-child { font-style: italic; color: purple;
+}
+/* :nth-child - targets the nth child */ ul li:nth-child(2) {
+background-color: #ffffcc;
+}
+/* :focus - applies when input is focused */ input:focus {
+border: 2px solid yellow; outline: none;
+}
+/* :checked - when checkbox is selected */ input[type="checkbox"]:checked + label { color: green;
+font-weight: bold;
+}/* :visited - visited links */ a:visited {
+color: purple;
+}
+</style>
+</head>
+<body>
+<h1>Pseudo-Class Selector Demo</h1>
+<a href="https://www.google.com/" target="_blank">Hover or Visit me</a>
+<form>
+<p>
+<label for="name">Name:</label>
+<input type="text" id="name" placeholder="Type your name">
+ 
+</p>
+<p>
+<input type="checkbox" id="agree">
+<label for="agree">I agree to terms</label>
+</p>
+</form>
+<!-- Example list to test first-child, last-child, nth-child -->
+<ul>
+<li>First Item</li>
+<li>Second Item</li>
+<li>Last Item</li>
+</ul>
+</body>
+</html>

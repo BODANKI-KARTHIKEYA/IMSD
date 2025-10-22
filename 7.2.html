@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>window object example</title>
+</head>
+<body>
+<button onclick="showWindowInfo()">show window info</button>
+<button onclick="openNewWindow()">open new window</button>
+<button onclick="closeNewWindow()">close new window</button>
+
+<div id="output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+    Window information will appear here.
+</div>
+
+<script>
+    let newWin; // Variable to store the reference of the opened window
+
+    /**
+     * Retrieves and displays information about the current browser window/viewport.
+     */
+    function showWindowInfo() {
+        // Get window properties
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let locationHref = window.location.href;
+
+        // Display info in the output div
+        document.getElementById("output").innerHTML =
+            "**Window Width:** " + width + "px<br>" +
+            "**Window Height:** " + height + "px<br>" +
+            "**Current URL:** " + locationHref;
+    }
+
+    /**
+     * Opens a new browser window/tab to Google with specified dimensions.
+     */
+    function openNewWindow() {
+        // Use window.open(URL, windowName, features)
+        newWin = window.open("https://www.google.com", "ExampleWindow", "width=400,height=300");
+    }
+
+    /**
+     * Closes the window that was opened by openNewWindow().
+     */
+    function closeNewWindow() {
+        // Check if a window reference exists before trying to close it
+        if (newWin) {
+            newWin.close();
+        } else {
+            document.getElementById("output").innerHTML = "No new window reference to close.";
+        }
+    }
+</script>
+</body>
+</html>

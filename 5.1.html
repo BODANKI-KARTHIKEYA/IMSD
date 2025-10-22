@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>CSS color Reference </title>
+<style> body{
+font-family:Arial,sans-serif; padding:20px;
+background-color:#f9f9f9;
+}
+h1{
+text-align:center;
+}
+.color-box{ width:250px; height:100px; color:white; display:flex;
+align-items:center; justify-content:center; margin:15px;
+font-size:18px; font-weight:bold; border-radius:8px;
+box-shadow:0 4px 6px rgba(0,0,0,0,1);
+}
+/*1.named color*/
+.named-color{
+background-color:tomata;/*css named color*/
+}
+ 
+/*2.hexa decimal notation*/
+.hex-color{
+background-color:#1E90FF;/*dodger blue*/
+}
+/*3.RGB notation*/
+.rgb-color{
+background-color:rgb(34,139,34);/*forest green*/
+}
+/*4.RGBA notation (with transperency)*/
+.rgba-color{
+background-color:rgba(255,0,0,0.6);/*red with transperency*/
+}
+/*5.HSL notation*/
+.hsl-color{
+background-color:hsl(300,76%,72%);/*light purple*/
+}
+/*6.HSLA notation(with transperency)*/
+.hsla-color{
+background-color:hsla(39,100%,50%,0.7);/*orange with transperency*/
+}
+</style>
+</head>
+<body>
+<h1>DIFFERENT WAYS TO REFERENCE COLORS IN CSS</h1>
+<div class="color-box named-color">Named color</div>
+<div class="color-box hex-color">hex code</div>
+<div class="color-box rgb-color">RGB</div>
+<div class="color-box rgba-color">RGBA</div>
+<div class="color-box hsl-color">HSL</div>
+<div class="color-box hsla-color">HSLA</div>
+ 
+</body>
+</html>
