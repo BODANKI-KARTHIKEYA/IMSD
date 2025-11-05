@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us Page</title>
+    <script type="text/javascript">
+        // Validation for fields
+        function validation() {
+            var nm = document.getElementById("name").value.trim();
+            var em = document.getElementById("email_id").value.trim();
+            var ph = document.getElementById("phone").value.trim();
+            var su = document.getElementById("subject_id").value.trim();
+            var me = document.getElementById("message_id").value.trim();
+
+            // Check all empty
+            if (nm === "" && em === "" && ph === "" && su === "" && me === "") {
+                alert("Please enter all fields");
+                return false;
+            }
+
+            // Name validation
+            else if (nm === "") {
+                alert("Enter Name");
+                return false;
+            } 
+            else if (!/^[A-Za-z][A-Za-z0-9]{5,}$/.test(nm)) {
+                alert("Name must start with an alphabet, can contain alphanumeric characters, and be at least 6 characters long");
+                return false;
+            }
+
+            // Email validation
+            else if (em === "") {
+                alert("Enter Email");
+                return false;
+            } 
+            else if (!/^[A-Za-z0-9._%+-]{6,}@[A-Za-z]{4,}\.[A-Za-z]{2,3}$/.test(em)) {
+                alert("Enter a valid Email ID (e.g., example@domain.com)");
+                return false;
+            }
+
+            // Phone number validation
+            else if (ph === "") {
+                alert("Enter Phone Number");
+                return false;
+            } 
+            else if (!/^[0-9]{10}$/.test(ph)) {
+                alert("Phone number must contain exactly 10 digits");
+                return false;
+            }
+
+            // Subject validation
+            else if (su === "") {
+                alert("Enter Subject");
+                return false;
+            }
+
+            // Message validation
+            else if (me === "") {
+                alert("Enter Message");
+                return false;
+            } 
+            else if (me.length < 20) {
+                alert("Message should be at least 20 characters long");
+                return false;
+            }
+
+            // All validations passed
+            else {
+                alert("Form submitted successfully!");
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return validation()" action="registration_app.php" method="POST">
+        <table align="center" border="0" cellpadding="5">
+            <tr>
+                <td colspan="2" align="center"><h2>Contact Us</h2></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <td>Email ID:</td>
+                <td><input type="text" name="email" id="email_id" /></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="text" name="phone" id="phone" /></td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td><input type="text" name="subject" id="subject_id" /></td>
+            </tr>
+            <tr>
+                <td>Message:</td>
+                <td><textarea name="message" id="message_id" rows="4" cols="25"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="SUBMIT" />
+                    <input type="reset" value="CLEAR" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
